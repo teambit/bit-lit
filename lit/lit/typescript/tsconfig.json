@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "lib": [
+      "es2019", "DOM", "ES6" ,"DOM.Iterable"
+    ],
+    "target": "es2015",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "jsx": "react",
+    "module": "commonjs",
+    "declaration": true,
+    "skipLibCheck": true,
+  },
+  "exclude": [
+    "dist"
+  ]
+}
