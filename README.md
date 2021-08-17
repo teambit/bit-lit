@@ -60,7 +60,7 @@ Note: if you want to use bit in an existing workspace, then just run the above i
 To use the Lit environment, you first need to check what the latest version available:
 
 ```bash
-npm dist-tag ls @teambit/lit
+bit show teambit.lit/lit -r
 ```
 
 Then add the following lines in your workspace.jsonc file to apply the Lit development environment to your lit element components in your workspace (replace `x.x.x` by the latest version available):
@@ -71,18 +71,7 @@ Then add the following lines in your workspace.jsonc file to apply the Lit devel
   "lit": { // or whatever folder/s in your workspace your lit element components are in
     "teambit.lit/lit": { }
   }
-},
-"teambit.generator/generator": {
-  "aspects": [
-    "teambit.lit/lit"
-  ]
 }
-```
-
-Create a bit component:
-
-```bash
-bit create lit ui/my-button
 ```
 
 Install dependencies:
