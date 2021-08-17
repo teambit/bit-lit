@@ -1,7 +1,5 @@
 import { VariantPolicyConfigObject } from '@teambit/dependency-resolver';
 import { merge } from 'lodash';
-import { TsConfigSourceFile } from 'typescript';
-import type { TsCompilerOptionsWithoutTsConfig } from '@teambit/typescript';
 import { TypescriptMain } from '@teambit/typescript';
 import { BuildTask } from '@teambit/builder';
 import { Compiler } from '@teambit/compiler';
@@ -12,10 +10,12 @@ import {
   previewConfigTransformer,
   devServerConfigTransformer,
 } from "./webpack/webpack-transformers";
-import { UseWebpackModifiers } from "@teambit/react";
+import { UseWebpackModifiers, UseTypescriptModifiers } from "@teambit/react";
 import { LitEnv } from './lit.env';
-
-const newtsConfig = require("./typescript/tsconfig.json");
+import {
+  devConfigTransformer,
+  buildConfigTransformer
+} from "./typescript/ts-transformers";
 
 type LitDeps = [
   EnvsMain,
@@ -28,16 +28,13 @@ export class LitEnvMain {
     private html: HtmlMain,
     private litEnv: LitEnv,
     private envs: EnvsMain
-    ) {}
+  ) {}
 
   /**
-   * override the TS config of the environment.
+   * override the env's typescript config for both dev and build time.
+   * Replaces both overrideTsConfig (devConfig) and overrideBuildTsConfig (buildConfig)
    */
-  overrideTsConfig: (
-    tsconfig: TsConfigSourceFile,
-    compilerOptions?: Partial<TsCompilerOptionsWithoutTsConfig>,
-    tsModule?: any
-  ) => EnvTransformer = this.html.overrideTsConfig.bind(this.html);
+  useTypescript = this.html.useTypescript.bind(this.html);
 
   /**
    * override the jest config of the environment.
@@ -47,32 +44,26 @@ export class LitEnvMain {
   /**
    * override the env build pipeline.
    */
-  overrideBuildPipe: (tasks: BuildTask[]) => EnvTransformer = this.html.overrideBuildPipe.bind(this.html);
+  overrideBuildPipe: (tasks: BuildTask[]) => EnvTransformer =
+    this.html.overrideBuildPipe.bind(this.html);
 
   /**
    * override the env compilers list.
    */
-  overrideCompiler: (compiler: Compiler) => EnvTransformer = this.html.overrideCompiler.bind(this.html);
+  overrideCompiler: (compiler: Compiler) => EnvTransformer =
+    this.html.overrideCompiler.bind(this.html);
 
   /**
    * override the env compilers tasks in the build pipe.
    */
-  overrideCompilerTasks: (tasks: BuildTask[]) => EnvTransformer = this.html.overrideCompilerTasks.bind(this.html);
-
-  /**
-   * override the build ts config.
-   */
-  overrideBuildTsConfig: (
-    tsconfig: any,
-    compilerOptions?: Partial<TsCompilerOptionsWithoutTsConfig>
-  ) => EnvTransformer = this.html.overrideBuildTsConfig.bind(this.html);
+  overrideCompilerTasks: (tasks: BuildTask[]) => EnvTransformer =
+    this.html.overrideCompilerTasks.bind(this.html);
 
   /**
    * override package json properties.
    */
-  overridePackageJsonProps: (props: PackageJsonProps) => EnvTransformer = this.html.overridePackageJsonProps.bind(
-    this.html
-  );
+  overridePackageJsonProps: (props: PackageJsonProps) => EnvTransformer =
+    this.html.overridePackageJsonProps.bind(this.html);
 
   /**
    * override the env's dev server and preview webpack configurations.
@@ -84,8 +75,12 @@ export class LitEnvMain {
    */
   useWebpack(modifiers?: UseWebpackModifiers) {
     const mergedModifiers: UseWebpackModifiers = {
-      previewConfig: [previewConfigTransformer].concat(modifiers?.previewConfig ?? []),
-      devServerConfig: [devServerConfigTransformer].concat(modifiers?.devServerConfig ?? []),
+      previewConfig: [previewConfigTransformer].concat(
+        modifiers?.previewConfig ?? []
+      ),
+      devServerConfig: [devServerConfigTransformer].concat(
+        modifiers?.devServerConfig ?? []
+      ),
     };
     return this.html.useWebpack(mergedModifiers);
   }
@@ -95,7 +90,8 @@ export class LitEnvMain {
    */
   overrideDependencies(dependencyPolicy: VariantPolicyConfigObject) {
     return this.envs.override({
-      getDependencies: () => merge(dependencyPolicy, this.litEnv.getDependencies()),
+      getDependencies: () =>
+        merge(dependencyPolicy, this.litEnv.getDependencies()),
     });
   }
 
@@ -103,23 +99,31 @@ export class LitEnvMain {
    * create a new composition of the lit environment.
    */
   compose(transformers: EnvTransformer[], targetEnv: Environment = {}) {
-    return this.envs.compose(this.envs.merge(targetEnv, this.litEnv), transformers);
+    return this.envs.compose(
+      this.envs.merge(targetEnv, this.litEnv),
+      transformers
+    );
   }
 
   static dependencies: any = [EnvsAspect, HtmlAspect];
 
-  static async provider([envs, html, tsAspect]: LitDeps) {
-    const litEnv: LitEnv = envs.merge(new LitEnv(tsAspect), html.htmlEnv);
+  static async provider([envs, html]: LitDeps) {
+    const litEnv: LitEnv = envs.merge(new LitEnv(), html.htmlEnv);
 
     const webpackModifiers: UseWebpackModifiers = {
       previewConfig: [previewConfigTransformer],
       devServerConfig: [devServerConfigTransformer],
     };
-    const LitEnvEnv = html.compose([
-      html.overrideTsConfig(newtsConfig),
-      html.overrideBuildTsConfig(newtsConfig),
-      html.useWebpack(webpackModifiers)
-    ]);
+
+    const tsModifiers: UseTypescriptModifiers = {
+      devConfig: [devConfigTransformer],
+      buildConfig: [buildConfigTransformer],
+    };
+
+    const LitEnvEnv = html.compose(
+      [html.useTypescript(tsModifiers), html.useWebpack(webpackModifiers)],
+      litEnv
+    );
 
     envs.registerEnv(LitEnvEnv);
 

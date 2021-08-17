@@ -38,7 +38,8 @@
     "packageManager": "teambit.dependencies/pnpm",
     "policy": {
       "dependencies": {
-        "@teambit/webpack.modules.style-regexps": "0.0.66"
+        "@teambit/webpack.modules.style-regexps": "0.0.66",
+        "lodash": "4.17.21"
       },
       "peerDependencies": {}
     },
