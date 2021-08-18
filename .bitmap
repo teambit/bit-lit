@@ -13,13 +13,13 @@
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "lit/example"
+        "rootDir": "web-components/example"
     },
     "lit": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "lit/lit"
+        "rootDir": "web-components/lit"
     },
     "$schema-version": "14.9.0"
 }

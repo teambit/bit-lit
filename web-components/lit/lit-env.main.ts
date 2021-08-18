@@ -17,6 +17,8 @@ import {
   buildConfigTransformer
 } from "./typescript/ts-transformers";
 
+const jestConfig = require.resolve("./jest/jest.config");
+
 type LitDeps = [
   EnvsMain,
   HtmlMain,
@@ -121,7 +123,11 @@ export class LitEnvMain {
     };
 
     const LitEnvEnv = html.compose(
-      [html.useTypescript(tsModifiers), html.useWebpack(webpackModifiers)],
+      [
+        html.useTypescript(tsModifiers),
+        html.useWebpack(webpackModifiers),
+        html.overrideJestConfig(jestConfig),
+      ],
       litEnv
     );
 
