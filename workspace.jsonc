@@ -40,10 +40,9 @@
       "dependencies": {
         "@open-wc/testing-helpers": "1.8.12",
         "@teambit/webpack.modules.style-regexps": "0.0.66",
-        "@testing-library/dom": "^7.21.7",
+        // "@testing-library/dom": "^7.21.7",
         "@testing-library/jest-dom": "5.14.1",
         "lit-html": "1.4.1",
-        // "jest": "^26.2.2",
         "lodash": "4.17.21",
         "testing-library__dom": "7.29.4-beta.1"
       },
