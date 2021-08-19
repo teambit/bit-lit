@@ -71,7 +71,6 @@
       "teambit.dependencies/dependency-resolver": {
         "policy": {
           "dependencies": {
-            "ts-jest": "^26.1.4",
             "extract-loader": "5.1.0",
             "lit-scss-loader": "1.1.0",
             "css-loader": "5.2.6",
