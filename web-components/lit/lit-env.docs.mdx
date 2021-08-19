@@ -1,0 +1,52 @@
+---
+labels: ['lit', 'element', 'web components', 'extension', 'env', 'environment']
+description: 'A customized extension for Lit environment.'
+---
+
+### Overview
+
+This environment provides support for creating Lit Element Bit components. This brings the potential for creating and sharing re-usable custom elements (a.k.a web components)
+which are framework agnostic and can include both UI and logic.
+
+## Use the Lit environment
+
+To use this environment for your components, add it to any of the `variants` in your `workspace.jsonc` file as follows:
+(replace x.x.x by the latest version available. you can find it using `bit show teambit.web-components/lit --remote`)
+
+```json title="workspace.jsonc"
+{
+  "teambit.workspace/variants": {
+    "some/path": {
+      "teambit.web-components/lit@x.x.x": {}
+    }
+  }
+}
+```
+
+## Default Configuration and Services
+
+Lit, like all over Environments must implement a set of Service Handlers. For each service, Lit compose a different tool and config by default.
+
+> Lit is a composition of the Node environment with some specific modifications. 
+
+| Service              | Aspect                                                      | Base Configuration                                                                                                                 |
+| -------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Compilation          | [TypeScript](https://bit.dev/teambit/typescript/typescript) | [tsconfig.json](https://bit.dev/teambit/react/react/~code/typescript/tsconfig.json)                                                |
+| Testing              | **Jest**                                                    | [jest.config.js](https://bit.dev/teambit/react/react/~code/jest/jest.config.js)                                                    |
+| Linting              | **ESLint**                                                  | [eslintrc.ts](https://bit.dev/teambit/react/react/~code/eslint/eslintrc.ts)                                                        |
+| DevServer            | **Webpack**                                                 | [webpack.config.preview.dev.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.dev.ts)                   |
+| Preview (simulation) | **Webpack**                                                 | [webpack.config.preview.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.ts)                           |
+| Package              | **PKG**                                                     | Base `package.json` props from [TypeScript Aspect](https://bit.dev/teambit/typescript/typescript/~code/typescript.main.runtime.ts) |
+| Bundling             | **Webpack**                                                 | [webpack.config.preview.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.ts)                           |
+| Documentation        | _Core implementation_                                       | [Docs template](https://bit.dev/teambit/react/react/~code/docs/index.tsx)                                                          |
+| Build pipeline       | [Builder](https://bit.dev/teambit/pipelines/builder)        | [Build pipeline](https://bit.dev/teambit/react/react/~code/node.env.ts)                                                            |
+| Dependencies         | _Core implementation_                                       | [Env-dependencies](https://bit.dev/teambit/harmony/node/~code/node.env.ts)                                                         |
+| Component Generator  | [Generator](https://bit.dev/teambit/generator/generator)    | [example template](https://bit.dev/harmony/node/~code/templates/node-component.ts)                                                 |
+
+## Customize environment
+
+All environments are extendible. You can take any pre-existing environment, and create a component to extend it. That component can then use APIs to:
+
+- Override default configurations.
+- Replace composed tools with others (for example - use Babel instead of TypeScript).
+- Add new services and capabilities.
