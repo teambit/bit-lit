@@ -11,6 +11,9 @@ export class LitEnv implements DependenciesEnv {
         // This is added as dev dep since our jest file transformer uses babel plugins that require this to be installed
         "@babel/runtime": "7.12.18",
       },
+      peerDependencies: {
+        "lit": "^2.0.0-rc.2"
+      }
     };
   }
 }
