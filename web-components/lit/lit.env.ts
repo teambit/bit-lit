@@ -1,6 +1,6 @@
 import { DependenciesEnv, CompilerEnv, DevEnv } from '@teambit/envs';
 import { VariantPolicyConfigObject } from '@teambit/dependency-resolver';
-export class LitEnv implements DependenciesEnv, CompilerEnv {
+export class LitEnv implements DependenciesEnv {
   icon = "https://static.bit.dev/extensions-icons/lit.svg";
 
   getDependencies(): VariantPolicyConfigObject {
