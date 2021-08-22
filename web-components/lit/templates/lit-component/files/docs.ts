@@ -18,7 +18,7 @@ Basic lit component
 
 Usage example:
 
-ֿֿ\`\`\`js
+\`\`\`js
 import './${name}';
 
 <${name} name="World"></${name}>
