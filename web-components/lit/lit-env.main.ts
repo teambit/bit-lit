@@ -1,29 +1,31 @@
-import { VariantPolicyConfigObject } from '@teambit/dependency-resolver';
-import { merge } from 'lodash';
-import { TypescriptMain } from '@teambit/typescript';
-import { BuildTask } from '@teambit/builder';
-import { Compiler } from '@teambit/compiler';
-import { PackageJsonProps } from '@teambit/pkg';
-import { EnvsAspect, EnvsMain, EnvTransformer, Environment } from '@teambit/envs';
+import { GeneratorAspect, GeneratorMain } from "@teambit/generator";
+import { VariantPolicyConfigObject } from "@teambit/dependency-resolver";
+import { merge } from "lodash";
+import { BuildTask } from "@teambit/builder";
+import { Compiler } from "@teambit/compiler";
+import { PackageJsonProps } from "@teambit/pkg";
+import {
+  EnvsAspect,
+  EnvsMain,
+  EnvTransformer,
+  Environment,
+} from "@teambit/envs";
 import { HtmlAspect, HtmlMain } from "@teambit/html";
 import {
   previewConfigTransformer,
   devServerConfigTransformer,
 } from "./webpack/webpack-transformers";
 import { UseWebpackModifiers, UseTypescriptModifiers } from "@teambit/react";
-import { LitEnv } from './lit.env';
+import { LitEnv } from "./lit.env";
 import {
   devConfigTransformer,
-  buildConfigTransformer
+  buildConfigTransformer,
 } from "./typescript/ts-transformers";
+import { componentTemplates, workspaceTemplates } from "./lit.templates";
 
 const jestConfig = require.resolve("./jest/jest.config");
 
-type LitDeps = [
-  EnvsMain,
-  HtmlMain,
-  TypescriptMain,
-];
+type LitDeps = [EnvsMain, HtmlMain, GeneratorMain];
 
 export class LitEnvMain {
   constructor(
@@ -107,9 +109,9 @@ export class LitEnvMain {
     );
   }
 
-  static dependencies: any = [EnvsAspect, HtmlAspect];
+  static dependencies: any = [EnvsAspect, HtmlAspect, GeneratorAspect];
 
-  static async provider([envs, html]: LitDeps) {
+  static async provider([envs, html, generator]: LitDeps) {
     const litEnv: LitEnv = envs.merge(new LitEnv(), html.htmlEnv);
 
     const webpackModifiers: UseWebpackModifiers = {
@@ -132,6 +134,8 @@ export class LitEnvMain {
     );
 
     envs.registerEnv(LitEnvEnv);
+    generator.registerComponentTemplate(componentTemplates);
+    generator.registerWorkspaceTemplate(workspaceTemplates);
 
     return new LitEnvMain(html, litEnv, envs);
   }

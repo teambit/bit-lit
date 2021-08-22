@@ -56,6 +56,10 @@
     "installFromBitDevRegistry": true,
     "savePrefix": ""
   },
+  "teambit.web-components/lit":{},
+  "teambit.generator/generator": {
+    "aspects": ["teambit.web-components/lit"]
+  },
   /**
    * workspace variants allow to set different subsets of configuration for components in your
    * workspace. this is extremely useful for upgrading, aligning and building components with a new
