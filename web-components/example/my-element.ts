@@ -15,8 +15,4 @@ export class SimpleGreeting extends LitElement {
   render() {
     return html`<p>Hello, ${this.name}!</p>`;
   }
-
-  // createRenderRoot() {
-  //   return this;
-  // }
 }

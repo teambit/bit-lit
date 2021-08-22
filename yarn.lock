@@ -1408,6 +1408,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"comp-template-3b066c@workspace:web-components/comp-template":
+  version: 0.0.0-use.local
+  resolution: "comp-template-3b066c@workspace:web-components/comp-template"
+  languageName: unknown
+  linkType: soft
+
 "concat-map@npm:0.0.1":
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fconcat-map%2F-%2Fconcat-map-0.0.1.tgz"
@@ -1714,12 +1720,6 @@ __metadata:
   checksum: 22b5b08f74737379a840b8ed2036a5fb35826c709ab000683b092d9054e5c2a82c27818f12604bfc2a9a76b90b6834ef081edbc1c7ae30d1627012e067c6ec87
   languageName: node
   linkType: hard
-
-"example-7ba84d@workspace:web-components/example":
-  version: 0.0.0-use.local
-  resolution: "example-7ba84d@workspace:web-components/example"
-  languageName: unknown
-  linkType: soft
 
 "extend@npm:~3.0.2":
   version: 3.0.2
