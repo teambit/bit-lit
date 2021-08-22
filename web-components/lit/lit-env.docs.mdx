@@ -1,5 +1,5 @@
 ---
-labels: ['lit', 'element', 'web components', 'extension', 'env', 'environment']
+labels: ['lit', 'element', 'web components', 'aspect', 'env', 'environment']
 description: 'A customized extension for Lit environment.'
 ---
 
@@ -7,15 +7,52 @@ description: 'A customized extension for Lit environment.'
 
 This environment provides support for creating [Lit Elements](https://lit.dev) as Bit components. Use this to create and share re-usable custom elements (a.k.a web components) which are framework agnostic and can include both UI and logic.
 
-## Creact a new Lit workspace
+## Create a new workspace using a template
 
 This environment comes with a built in basic workspace template for Lit components. To use it run:
-`bit new lit my-lit-workspace-name --aspect "teambit.web-components/lit"`
-it will create a new folder named `my-lit-workspace-name` where you can start creating lit components (see `Creact a Lit component` below).
 
-In case you want to set it up on an exsiting workspace, see `Use the Lit environment on existing workspace` below.
+```sh
+bit new lit my-lit-workspace --aspect teambit.web-components/lit
+```
 
-## Use the Lit environment on existing workspace
+`cd` to project directory and open `workspace.jsonc` to configure the workspace to your liking.
+
+Create your first component:
+
+```sh
+bit create lit my-component
+```
+
+Ensure all dependencies installed:
+
+```sh
+bit install
+```
+
+Start the local dev server:
+
+```sh
+bit start
+```
+
+## Creact a Lit component
+
+This environment comes with a built in basic component template for Lit components.  
+See available templates:
+
+```sh
+bit templates
+```
+
+Create a component using the Lit template:
+
+```sh
+bit create lit my-component
+```
+
+> **Note:** [Custom Elements specification](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define#parameters) requires that all custom elements contain a hyphen (`-`) in the name. When using `bit create` you would use `my-person` or `x-person` rather than `person` for the component name.
+
+## Use the Lit environment on existing Bit workspace
 
 First get the latest version of Lit support for Bit by running this command:
 
@@ -27,24 +64,26 @@ In your `workspace.jsonc` add the following lines, and replace `x.x.x` with the 
 
 ```json title="workspace.jsonc"
 {
+  /**
+   * Apply the Lit environment for the workspace.
+   **/
   "teambit.web-components/lit@x.x.x": {},
-  "teambit.workspace/variants": {
-    "some/path": {
-      "teambit.web-components/lit@x.x.x": {}
-    }
-  },
+  /**
+   * Add Lit component generators to list of available component templates.
+   **/
   "teambit.generator/generator": {
     "aspects": [
       "teambit.web-components/lit"
     ]
   }
+  /**
+   * Set locations and name patterns for components in the workspace for Bit to configure as Lit components.
+   **/
+  "teambit.workspace/variants": {
+    "{lit/**}": {
+      "teambit.web-components/lit@x.x.x": {}
+    }
+  },
+
 }
-```
-
-## Creact a Lit component
-
-This environment comes with a built in basic component template for Lit components. To use it run:
-
-```sh
-bit create lit my-component
 ```
