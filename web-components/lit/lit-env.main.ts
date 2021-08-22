@@ -4,6 +4,7 @@ import { merge } from "lodash";
 import { BuildTask } from "@teambit/builder";
 import { Compiler } from "@teambit/compiler";
 import { PackageJsonProps } from "@teambit/pkg";
+import { ScopeMain, ScopeAspect } from "@teambit/scope";
 import {
   EnvsAspect,
   EnvsMain,
@@ -21,11 +22,11 @@ import {
   devConfigTransformer,
   buildConfigTransformer,
 } from "./typescript/ts-transformers";
-import { componentTemplates, workspaceTemplates } from "./lit.templates";
+import { componentTemplates, getWorkspaceTemplates } from "./lit.templates";
 
 const jestConfig = require.resolve("./jest/jest.config");
 
-type LitDeps = [EnvsMain, HtmlMain, GeneratorMain];
+type LitDeps = [EnvsMain, HtmlMain, GeneratorMain, ScopeMain];
 
 export class LitEnvMain {
   constructor(
@@ -109,9 +110,9 @@ export class LitEnvMain {
     );
   }
 
-  static dependencies: any = [EnvsAspect, HtmlAspect, GeneratorAspect];
+  static dependencies: any = [EnvsAspect, HtmlAspect, GeneratorAspect, ScopeAspect];
 
-  static async provider([envs, html, generator]: LitDeps) {
+  static async provider([envs, html, generator, scope]: LitDeps) {
     const litEnv: LitEnv = envs.merge(new LitEnv(), html.htmlEnv);
 
     const webpackModifiers: UseWebpackModifiers = {
@@ -135,7 +136,7 @@ export class LitEnvMain {
 
     envs.registerEnv(LitEnvEnv);
     generator.registerComponentTemplate(componentTemplates);
-    generator.registerWorkspaceTemplate(workspaceTemplates);
+    generator.registerWorkspaceTemplate(getWorkspaceTemplates(scope));
 
     return new LitEnvMain(html, litEnv, envs);
   }
