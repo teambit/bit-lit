@@ -43,50 +43,7 @@ Install Bit:
 bvm install
 ```
 
-Create a new folder for your bit workspace
-
-```bash
-mkdir <workspace> && cd <workspace>
-```
-
-Initialize a [Bit Harmony workspace](https://harmony-docs.bit.dev/getting-started/initializing-workspace) and then manually configure the environment and install any peer dependencies needed.
-
-```bash
-bit init --harmony
-```
-
-Note: if you want to use bit in an existing workspace, then just run the above init command in the root folder of your existing workspace.
-
-To use the Lit environment, you first need to check what the latest version available:
-
-```bash
-bit show teambit.lit/lit -r
-```
-
-Then add the following lines in your workspace.jsonc file to apply the Lit development environment to your lit element components in your workspace (replace `x.x.x` by the latest version available):
-
-```bash
-"teambit.lit/lit@x.x.x": {},
-"teambit.workspace/variants": {
-  "lit": { // or whatever folder/s in your workspace your lit element components are in
-    "teambit.lit/lit": { }
-  }
-}
-```
-
-Install dependencies:
-
-```bash
-bit install
-```
-
-Start the dev server
-
-```bash
-bit start
-```
-
-Open-up your browser on localhost:3000, or any other available port, and display your workspace with your components.
+[Instructions on setting up a Bit workspace with Lit and additional features.](https://bit.dev/teambit/web-components/lit)
 
 ### Resources & Community
 
