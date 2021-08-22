@@ -5,9 +5,9 @@ export const compositionFile = (context: ComponentContext) => {
 
   return {
     relativePath: `${name}.composition.tsx`,
-    content: `import './my-element';
+    content: `import './${name}';
 
-export const HtmlStringComposition = ֿ\`<${name} name="World"></${name}>ֿ\`;
+export const HtmlStringComposition = \`<${name} name="World"></${name}>\`;
 `,
   };
 };
