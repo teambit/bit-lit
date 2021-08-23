@@ -14,8 +14,10 @@ export const createLitWorkspaceTemplate = (scope: ScopeMain) => {
     name: "lit",
     description: "lit workspace with demo components",
     generateFiles: async (context: WorkspaceContext) => {
-      const litEnvComponent = await scope.getRemoteComponent(ComponentID.fromString(LitAspect.id));
-      const litEnvIdWithVersion = litEnvComponent.id.toString();
+      // const litEnvComponent = await scope.getRemoteComponent(ComponentID.fromString(LitAspect.id));
+      // const litEnvIdWithVersion = litEnvComponent.id.toString();
+      // TODO: remove once fixing the argument
+      const litEnvIdWithVersion = "teambit.web-components/lit@0.0.8";
       return [
         {
           relativePath: "workspace.jsonc",
