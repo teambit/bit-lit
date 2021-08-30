@@ -20,7 +20,7 @@ const negativeLookahead = packagesToTransform.reduce((acc, curr) => {
   if (acc) {
     return `${acc}|${yarnPattern}|${pnpmPattern}|${newPnpmPattern}`;
   }
-  return `${yarnPattern}|${pnpmPattern}`;
+  return `${yarnPattern}|${pnpmPattern}|${newPnpmPattern}`;
 }, "");
 const transformIgnorePatterns = `node_modules/(?!(${negativeLookahead})/)`;
 
