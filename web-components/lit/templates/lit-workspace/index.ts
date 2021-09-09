@@ -16,8 +16,12 @@ export const createLitWorkspaceTemplate = (scope: ScopeMain) => {
     generateFiles: async (context: WorkspaceContext) => {
       // const litEnvComponent = await scope.getRemoteComponent(ComponentID.fromString(LitAspect.id));
       // const litEnvIdWithVersion = litEnvComponent.id.toString();
-      // TODO: remove once fixing the argument
-      const litEnvIdWithVersion = "teambit.web-components/lit@0.0.11";
+
+      // fallback to hard coded version in case of loading from workspace during development of this aspect
+      const litEnvIdWithVersion =
+        context.aspectComponent?.id?.toString() ||
+        "teambit.web-components/lit@0.0.12";
+      
       return [
         {
           relativePath: "workspace.jsonc",
