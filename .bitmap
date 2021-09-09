@@ -11,7 +11,7 @@
 {
     "lit": {
         "scope": "teambit.web-components",
-        "version": "0.0.11",
+        "version": "0.0.12",
         "mainFile": "index.ts",
         "rootDir": "web-components/lit"
     },
