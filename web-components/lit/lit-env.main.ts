@@ -41,6 +41,12 @@ export class LitEnvMain {
    */
   useTypescript = this.html.useTypescript.bind(this.html);
 
+    /**
+   * override the env's eslint config for both dev and build time.
+   * Replaces both overrideTsConfig (devConfig) and overrideBuildTsConfig (buildConfig)
+   */
+  useEslint = this.html.useEslint.bind(this.html);
+
   /**
    * override the jest config of the environment.
    */
