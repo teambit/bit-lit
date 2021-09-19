@@ -2,17 +2,20 @@ import { ComponentContext } from '@teambit/generator';
 
 export function docFile({ name, componentId }: ComponentContext) {
   return `---
-description: 'A standard React component development environment'
-labels: ['react', 'typescript', 'env', 'extension']
+description: 'A standard Lit Element component development environment'
+labels: ['lit', 'custom element', 'web component', 'typescript', 'env', 'extension']
 ---
 
 ## Overview
 
-A customized version which extends the default React component development environment created by teambit. This environment can be applied to all your components or a set of components under the variants of your \`workspace.json\` file. That means they will use your custom environment instead of the default environment. Environment components are just like any other Bit components in that they can be exported and then shared and used in various projects which makes it easier to create standards when working with many teams.
+A customized environment which extends the default [Lit component development environment](https://bit.dev/teambit/web-components/lit) created by teambit. 
+This environment can be applied to all your components or a set of components under the variants of your \`workspace.json\` file. 
+When applied to components, those components will use your custom environment instead of the default environment. 
+Environment components are just like any other Bit components in that they can be exported and then shared and used in various projects which, among other benefits, enables development standardisation across multiple teams.
 
-### Usage instructions
+### Usage Instructions
 
-Under the **variant** section of your \`workspace.json\` file choose which components you want to have the custom environment set. You can find the id of the extension in the \`${name}.aspect.ts\` file.
+Under the **variant** section of your \`workspace.json\` file [create the set](https://harmony-docs.bit.dev/aspects/variants/#variants-selector-examples) of components you want to have the custom environment set for, and configure them to use the custom environment as follows - you can find the id of the extension in the \`${name}.aspect.ts\` file.
 
 \`\`\`json
 {
@@ -26,12 +29,12 @@ Under the **variant** section of your \`workspace.json\` file choose which compo
 
 ## Runtime Configurations
 
-Extend the \`main.runtime\` file when you want to add custom configurations at runtime.
+Extend the \`main.runtime\` file when you want to add custom configurations, such as jest, weebpack or typescript configs.
 
 ### Compilation
 
-By default, Component compilation is done with the TypeScript compiler. Target format is \`ES2015\` which
-supports execution from both NodeJS and browser runtimes for server-side rendering. You can modify the \`tsconfig.json\` file to add your own compiler options which will then be merged with the default configs set by teambit.
+By default, Component compilation uses the TypeScript compiler. Target format is \`ES2015\` which
+supports execution from both NodeJS and browser runtimes for server-side rendering. You can modify the \`tsconfig.json\` file in this extension to add your own compiler options which will then be merged with the default configs set by teambit.
 
 Example:
 
@@ -56,14 +59,14 @@ Example:
 
 ### Testing
 
-Component testing is done through [Jest](https://jestjs.io/) with the default \`teambit.react/react\` environment. You can modify the \`jestconfig.js\` file to add your own configurations which will then be merged with the default configs set by teambit.
+Component testing is done through [Jest](https://jestjs.io/) with the default \`teambit.web-components/lit\` environment. You can modify the \`jestconfig.js\` file to add your own configurations which will then be merged with the default configs set by teambit.
 
 Example:
 
 To Override the Jest config to ignore transpiling from specific folders add this to the \`jestconfig.js\` file:
 
 \`\`\`js
-const reactJestConfig = require('@teambit/react').jestconfig;
+const reactJestConfig = require('@teambit.web-components/lit/jest/jest.config.js');
 module.exports = {
   ...reactJestConfig,
   transformIgnorePatterns: ['/node_modules/(?!(prop-types|@teambit))']
