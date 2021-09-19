@@ -52,7 +52,6 @@ Example:
     "emitDecoratorMetadata": true,
     "allowJs": true,
     "baseUrl": ".",
-    "jsx": "react"
   }
 }
 \`\`\`
@@ -63,14 +62,12 @@ Component testing is done through [Jest](https://jestjs.io/) with the default \`
 
 Example:
 
-To Override the Jest config to ignore transpiling from specific folders add this to the \`jestconfig.js\` file:
+To Override the Jest config to ignore transpiling from specific folders add this to the \`jest.config.js\` file:
 
 \`\`\`js
-const reactJestConfig = require('@teambit.web-components/lit/jest/jest.config.js');
-module.exports = {
-  ...reactJestConfig,
-  transformIgnorePatterns: ['/node_modules/(?!(prop-types|@teambit))']
-};
+const packagesToTransform = [
+  //  // add packages you want jest to transpile here. E.g. @bitOrgName so that all your bit components will be transpiled in your tests
+  // ];
 \`\`\`
 
 ### Webpack
@@ -95,7 +92,7 @@ Bit uses ESLint to lint your components. You can add your own rules in the \`${n
 Example:
 
 \`\`\`ts
-react.useEslint({
+lit.useEslint({
   transformers: [
     (config) => {
       config.setRule('no-console', ['error']);
@@ -120,7 +117,7 @@ Bit uses Prettier to format your components. You can add your own rules in the \
 Example:
 
 \`\`\`ts
-react.usePrettier({
+lit.usePrettier({
   transformers: [
     (config) => {
       config.setKey('tabWidth', 2);
@@ -140,27 +137,14 @@ bit format
 
 ### Dependencies
 
-Override the default dependencies in the \`${name}.main.runtime\` file to include react types of a different version for example.
+Override the default dependencies in the \`${name}.main.runtime\` file to include jest types of a different version for example.
 
 \`\`\`ts
-react.overrideDependencies({
+lit.overrideDependencies({
   devDependencies: {
-    '@types/react': '17.0.3'
+    '@types/jest': '26.0.21',
   }
 });
 \`\`\`
-
-## Preview Configurations
-
-Extend the \`${name}.preview.runtime\` file when you want to add your own customizations only for previewing in the Bit UI.
-
-### Adding a Theme
-
-A custom theme has been added to the env which wraps all the composition files with the required theme so they can be developed with the correct themeing rather than the browsers default. This is added only in the preview runtime and not in the main runtime meaning it is only applied to compositions and not when consuming components. Adding a theme when consuming should be done at App level as you component may be consumed in various apps and have different themes applied depending on where it is consumed.
-
-Example:
-
-\`\`\`ts
-react.registerProvider([ThemeCompositions]);
-`;
+`
 }

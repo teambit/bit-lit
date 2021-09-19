@@ -1,10 +1,7 @@
-import { ComponentContext } from '@teambit/generator';
-
-export function mainRuntimeFile({ namePascalCase: Name, name }: ComponentContext) {
-  return `import { MainRuntime } from '@teambit/cli';
+import { MainRuntime } from '@teambit/cli';
 import { LitAspect, LitEnvMain } from '@teambit/web-components.lit';
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
-import { ${Name}Aspect } from './${name}.aspect';
+import { MyLitEnvAspect } from './my-lit-env.aspect';
 // import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
 
 /**
@@ -12,7 +9,7 @@ import { ${Name}Aspect } from './${name}.aspect';
  */
 // const tsconfig = require('./typescript/tsconfig');
 
-export class ${Name}Main {
+export class MyLitEnvMain {
   static slots = [];
 
   static dependencies = [LitAspect, EnvsAspect];
@@ -20,7 +17,7 @@ export class ${Name}Main {
   static runtime = MainRuntime;
 
   static async provider([lit, envs]: [LitEnvMain, EnvsMain]) {
-    const ${Name}Env = envs.compose(lit.litEnv, [
+    const MyLitEnvEnv = envs.compose(lit.litEnv, [
       /**
        * Uncomment to override the config files for TypeScript, Webpack or Jest
        * Your config gets merged with the defaults
@@ -74,11 +71,9 @@ export class ${Name}Main {
         }
       })
     ]);
-    envs.registerEnv(${Name}Env);
-    return new ${Name}Main();
+    envs.registerEnv(MyLitEnvEnv);
+    return new MyLitEnvMain();
   }
 }
 
-${Name}Aspect.addRuntime(${Name}Main);
-`;
-}
+MyLitEnvAspect.addRuntime(MyLitEnvMain);
