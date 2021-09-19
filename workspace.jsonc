@@ -39,6 +39,7 @@
     "policy": {
       "dependencies": {
         "@open-wc/testing-helpers": "1.8.12",
+        "@teambit/dependencies.modules.packages-excluder": "0.0.7",
         "@teambit/webpack.modules.style-regexps": "0.0.66",
         // "@testing-library/dom": "^7.21.7",
         "@testing-library/jest-dom": "5.14.1",

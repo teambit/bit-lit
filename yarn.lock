@@ -104,6 +104,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@teambit/dependencies.modules.packages-excluder@npm:0.0.7":
+  version: 0.0.7
+  resolution: "@teambit/dependencies.modules.packages-excluder@npm:0.0.7::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40teambit%2Fdependencies.modules.packages-excluder%2F-%2Fdependencies.modules.packages-excluder-0.0.7.tgz"
+  peerDependencies:
+    "@teambit/legacy": 1.0.154
+    react: 17.0.2
+  checksum: 26c1c0c8d37c730cd52271d1f71b2025ba0120fc9dc1f1fcba7ddfa4920caad609cb678076ad36ba9acb40935b39bddea7600f844c966a0c85ed8824b66d216a
+  languageName: node
+  linkType: hard
+
 "@teambit/harmony@npm:0.2.11":
   version: 0.2.11
   resolution: "@teambit/harmony@npm:0.2.11::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40teambit%2Fharmony%2F-%2Fharmony-0.2.11.tgz"
