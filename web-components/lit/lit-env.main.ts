@@ -31,7 +31,7 @@ type LitDeps = [EnvsMain, HtmlMain, GeneratorMain, ScopeMain];
 export class LitEnvMain {
   constructor(
     private html: HtmlMain,
-    private litEnv: LitEnv,
+    readonly litEnv: LitEnv,
     private envs: EnvsMain
   ) {}
 
@@ -40,6 +40,16 @@ export class LitEnvMain {
    * Replaces both overrideTsConfig (devConfig) and overrideBuildTsConfig (buildConfig)
    */
   useTypescript = this.html.useTypescript.bind(this.html);
+
+    /**
+   * override the env's eslint config for both dev and build time.
+   */
+  useEslint = this.html.useEslint.bind(this.html);
+
+     /**
+   * override the env's prettier config for both dev and build time.
+   */
+  usePrettier = this.html.usePrettier.bind(this.html);
 
   /**
    * override the jest config of the environment.
