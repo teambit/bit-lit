@@ -1,6 +1,17 @@
 import { generateNodeModulesPattern } from '@teambit/dependencies.modules.packages-excluder';
 const reactJestConfig = require('@teambit/react/jest/jest.config');
 
+const packagesToTransform = [
+  "lit",
+  "@lit",
+  "testing-library__dom",
+  "@open-wc",
+  "lit-html",
+  "lit-element",
+  "pure-lit",
+  "lit-element-state-decoupler",
+];
+
 const transformIgnorePatterns = generateNodeModulesPattern(packagesToTransform);
 
 module.exports = {
