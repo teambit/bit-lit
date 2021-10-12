@@ -12,12 +12,7 @@ const packagesToTransform = [
   "lit-element-state-decoupler",
 ];
 
-console.log(packagesToTransform);
-
-
 const transformIgnorePatterns = generateNodeModulesPattern({packages: packagesToTransform});
-
-console.log(transformIgnorePatterns);
 
 module.exports = {
   transform: reactJestConfig.transform,
