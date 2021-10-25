@@ -1,4 +1,6 @@
+import { generateNodeModulesPattern } from '@teambit/dependencies.modules.packages-excluder';
 const reactJestConfig = require('@teambit/react/jest/jest.config');
+
 const packagesToTransform = [
   "lit",
   "@lit",
@@ -10,19 +12,7 @@ const packagesToTransform = [
   "lit-element-state-decoupler",
 ];
 
-const negativeLookahead = packagesToTransform.reduce((acc, curr) => {
-  const yarnPattern = curr;
-  const pnpmPattern = `.pnpm/registry.npmjs.org/${curr}.*`;
-  // The new version of pnpm is not adding the registry as part of the path
-  // so adding this as well to support it
-  const newPnpmPattern = `.pnpm/${curr}.*`;
-
-  if (acc) {
-    return `${acc}|${yarnPattern}|${pnpmPattern}|${newPnpmPattern}`;
-  }
-  return `${yarnPattern}|${pnpmPattern}|${newPnpmPattern}`;
-}, "");
-const transformIgnorePatterns = `node_modules/(?!(${negativeLookahead})/)`;
+const transformIgnorePatterns = generateNodeModulesPattern({packages: packagesToTransform});
 
 module.exports = {
   transform: reactJestConfig.transform,
