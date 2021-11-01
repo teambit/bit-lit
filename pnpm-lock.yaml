@@ -10,14 +10,14 @@ importers:
       '@teambit/harmony': 0.2.11
       '@teambit/webpack.modules.style-regexps': 0.0.66
       '@testing-library/jest-dom': 5.14.1
-      '@types/jest': 26.0.20
+      '@types/jest': ^26.0.24
       '@types/mocha': 5.2.7
       '@types/node': 12.20.4
-      '@types/react': ^17.0.27
-      '@types/react-dom': ^17.0.9
+      '@types/react': ^17.0.33
+      '@types/react-dom': ^17.0.10
       '@types/testing-library__jest-dom': 5.9.5
       comment-json: 3.0.3
-      core-js: ^3.18.2
+      core-js: ^3.19.0
       css-loader: 5.2.6
       extract-loader: 5.1.0
       lit: 2.0.0-rc.2
@@ -38,7 +38,7 @@ importers:
       '@teambit/webpack.modules.style-regexps': registry.npmjs.org/@teambit/webpack.modules.style-regexps/0.0.66
       '@testing-library/jest-dom': registry.npmjs.org/@testing-library/jest-dom/5.14.1
       comment-json: registry.npmjs.org/comment-json/3.0.3
-      core-js: registry.npmjs.org/core-js/3.18.2
+      core-js: registry.npmjs.org/core-js/3.19.0
       css-loader: registry.npmjs.org/css-loader/5.2.6
       extract-loader: registry.npmjs.org/extract-loader/5.1.0
       lit: registry.npmjs.org/lit/2.0.0-rc.2
@@ -52,11 +52,11 @@ importers:
       testing-library__dom: registry.npmjs.org/testing-library__dom/7.29.4-beta.1
       typescript: registry.npmjs.org/typescript/4.3.5
     devDependencies:
-      '@types/jest': registry.npmjs.org/@types/jest/26.0.20
+      '@types/jest': registry.npmjs.org/@types/jest/26.0.24
       '@types/mocha': registry.npmjs.org/@types/mocha/5.2.7
       '@types/node': registry.npmjs.org/@types/node/12.20.4
-      '@types/react': registry.npmjs.org/@types/react/17.0.27
-      '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.9
+      '@types/react': registry.npmjs.org/@types/react/17.0.33
+      '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.10
       '@types/testing-library__jest-dom': registry.npmjs.org/@types/testing-library__jest-dom/5.9.5
 
   web-components/example:
@@ -200,10 +200,10 @@ packages:
     dependencies:
       '@types/istanbul-lib-report': registry.npmjs.org/@types/istanbul-lib-report/3.0.0
 
-  registry.npmjs.org/@types/jest/26.0.20:
-    resolution: {integrity: sha512-9zi2Y+5USJRxd0FsahERhBwlcvFh6D2GLQnY2FH2BzK8J9s9omvNHIbvABwIluXa0fD8XVKMLTO0aOEuUfACAA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/jest/-/jest-26.0.20.tgz}
+  registry.npmjs.org/@types/jest/26.0.24:
+    resolution: {integrity: sha512-E/X5Vib8BWqZNRlDxj9vYXhsDwPYbPINqKF9BsnSoon4RQ0D9moEuLD8txgyypFLH7J4+Lho9Nr/c8H0Fi+17w==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/jest/-/jest-26.0.24.tgz}
     name: '@types/jest'
-    version: 26.0.20
+    version: 26.0.24
     dependencies:
       jest-diff: registry.npmjs.org/jest-diff/26.6.2
       pretty-format: registry.npmjs.org/pretty-format/26.6.2
@@ -231,18 +231,18 @@ packages:
     version: 15.7.4
     dev: true
 
-  registry.npmjs.org/@types/react-dom/17.0.9:
-    resolution: {integrity: sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react-dom/-/react-dom-17.0.9.tgz}
+  registry.npmjs.org/@types/react-dom/17.0.10:
+    resolution: {integrity: sha512-8oz3NAUId2z/zQdFI09IMhQPNgIbiP8Lslhv39DIDamr846/0spjZK0vnrMak0iB8EKb9QFTTIdg2Wj2zH5a3g==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react-dom/-/react-dom-17.0.10.tgz}
     name: '@types/react-dom'
-    version: 17.0.9
+    version: 17.0.10
     dependencies:
-      '@types/react': registry.npmjs.org/@types/react/17.0.27
+      '@types/react': registry.npmjs.org/@types/react/17.0.33
     dev: true
 
-  registry.npmjs.org/@types/react/17.0.27:
-    resolution: {integrity: sha512-zgiJwtsggVGtr53MndV7jfiUESTqrbxOcBvwfe6KS/9bzaVPCTDieTWnFNecVNx6EAaapg5xsLLWFfHHR437AA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react/-/react-17.0.27.tgz}
+  registry.npmjs.org/@types/react/17.0.33:
+    resolution: {integrity: sha512-pLWntxXpDPaU+RTAuSGWGSEL2FRTNyRQOjSWDke/rxRg14ncsZvx8AKWMWZqvc1UOaJIAoObdZhAWvRaHFi5rw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react/-/react-17.0.33.tgz}
     name: '@types/react'
-    version: 17.0.27
+    version: 17.0.33
     dependencies:
       '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.4
       '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.2
@@ -260,7 +260,7 @@ packages:
     name: '@types/testing-library__jest-dom'
     version: 5.9.5
     dependencies:
-      '@types/jest': registry.npmjs.org/@types/jest/26.0.20
+      '@types/jest': registry.npmjs.org/@types/jest/26.0.24
 
   registry.npmjs.org/@types/trusted-types/2.0.2:
     resolution: {integrity: sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.2.tgz}
@@ -1249,10 +1249,10 @@ packages:
     requiresBuild: true
     dev: false
 
-  registry.npmjs.org/core-js/3.18.2:
-    resolution: {integrity: sha512-zNhPOUoSgoizoSQFdX1MeZO16ORRb9FFQLts8gSYbZU5FcgXhp24iMWMxnOQo5uIaIG7/6FA/IqJPwev1o9ZXQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/core-js/-/core-js-3.18.2.tgz}
+  registry.npmjs.org/core-js/3.19.0:
+    resolution: {integrity: sha512-L1TpFRWXZ76vH1yLM+z6KssLZrP8Z6GxxW4auoCj+XiViOzNPJCAuTIkn03BGdFe6Z5clX5t64wRIRypsZQrUg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/core-js/-/core-js-3.19.0.tgz}
     name: core-js
-    version: 3.18.2
+    version: 3.19.0
     requiresBuild: true
     dev: false
 
