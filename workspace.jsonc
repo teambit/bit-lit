@@ -39,7 +39,7 @@
     "policy": {
       "dependencies": {
         "@open-wc/testing-helpers": "1.8.12",
-        "@teambit/dependencies.modules.packages-excluder": "0.0.13",
+        "@teambit/dependencies.modules.packages-excluder": "0.0.53",
         "@teambit/webpack.modules.style-regexps": "0.0.66",
         "@testing-library/jest-dom": "5.14.1",
         "lit-html": "1.4.1",
@@ -88,9 +88,6 @@
           "devDependencies": {
             "@types/mocha": "5.2.7",
             "@types/node": "12.20.4"
-          },
-          "peerDependencies": {
-            "@teambit/legacy": "1.0.126"
           }
         }
       },

@@ -6,18 +6,18 @@ importers:
     specifiers:
       '@babel/runtime': 7.12.18
       '@open-wc/testing-helpers': 1.8.12
-      '@teambit/dependencies.modules.packages-excluder': 0.0.13
+      '@teambit/dependencies.modules.packages-excluder': 0.0.53
       '@teambit/harmony': 0.2.11
       '@teambit/webpack.modules.style-regexps': 0.0.66
       '@testing-library/jest-dom': 5.14.1
-      '@types/jest': ^26.0.24
+      '@types/jest': ^26.0.0
       '@types/mocha': 5.2.7
       '@types/node': 12.20.4
-      '@types/react': ^17.0.33
-      '@types/react-dom': ^17.0.10
+      '@types/react': ^17.0.8
+      '@types/react-dom': ^17.0.5
       '@types/testing-library__jest-dom': 5.9.5
       comment-json: 3.0.3
-      core-js: ^3.19.0
+      core-js: ^3.0.0
       css-loader: 5.2.6
       extract-loader: 5.1.0
       lit: 2.0.0-rc.2
@@ -25,15 +25,15 @@ importers:
       lit-scss-loader: 1.1.0
       lodash: 4.17.21
       node-sass: 5.0.0
-      react: ^17.0.2
-      react-dom: ^17.0.2
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
       sass-loader: 12.0.0
       testing-library__dom: 7.29.4-beta.1
       typescript: 4.3.5
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
       '@open-wc/testing-helpers': registry.npmjs.org/@open-wc/testing-helpers/1.8.12
-      '@teambit/dependencies.modules.packages-excluder': registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.13_react@17.0.2
+      '@teambit/dependencies.modules.packages-excluder': registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.53_react@17.0.2
       '@teambit/harmony': registry.npmjs.org/@teambit/harmony/0.2.11
       '@teambit/webpack.modules.style-regexps': registry.npmjs.org/@teambit/webpack.modules.style-regexps/0.0.66
       '@testing-library/jest-dom': registry.npmjs.org/@testing-library/jest-dom/5.14.1
@@ -128,14 +128,13 @@ packages:
       lit-html: registry.npmjs.org/lit-html/1.4.1
     dev: false
 
-  registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.13_react@17.0.2:
-    resolution: {integrity: sha512-4fxYDMG73HjNGq+rs3w68P0nBIrkC/mEn7CAAlI7FLqrLfWBRpnLXV0np/M96jC1BIs8UyC9shRBiUmarU2PqQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/-/dependencies.modules.packages-excluder-0.0.13.tgz}
-    id: registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.13
+  registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.53_react@17.0.2:
+    resolution: {integrity: sha512-0LjQ9IJhp4vQvpaVs4ZL0yXBPoVJFGZreM4V4ZiUeFWfCEnDkUm6iPE1smGAYPIQb1p8KPGkIphu1ua2KCHdPA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/-/dependencies.modules.packages-excluder-0.0.53.tgz}
+    id: registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.53
     name: '@teambit/dependencies.modules.packages-excluder'
-    version: 0.0.13
+    version: 0.0.53
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      '@teambit/legacy': 1.0.160
       react: 17.0.2
     dependencies:
       react: registry.npmjs.org/react/17.0.2
@@ -1245,7 +1244,7 @@ packages:
     resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz}
     name: core-js
     version: 2.6.12
-    deprecated: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
+    deprecated: core-js@<3.4 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
     requiresBuild: true
     dev: false
 
