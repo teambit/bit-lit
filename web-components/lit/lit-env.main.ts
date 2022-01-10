@@ -10,6 +10,7 @@ import {
   EnvsMain,
   EnvTransformer,
   Environment,
+  DependenciesEnv
 } from "@teambit/envs";
 import { HtmlAspect, HtmlMain } from "@teambit/html";
 import {
@@ -123,7 +124,8 @@ export class LitEnvMain {
   static dependencies: any = [EnvsAspect, HtmlAspect, GeneratorAspect, ScopeAspect];
 
   static async provider([envs, html, generator, scope]: LitDeps) {
-    const litEnv: LitEnv = envs.merge(new LitEnv(), html.htmlEnv);
+
+    // const litEnv: LitEnv = envs.merge<LitEnv, Environment>(new LitEnv(), html.htmlEnv)
 
     const webpackModifiers: UseWebpackModifiers = {
       previewConfig: [previewConfigTransformer],
@@ -135,16 +137,16 @@ export class LitEnvMain {
       buildConfig: [buildConfigTransformer],
     };
 
-    const LitEnvEnv = html.compose(
-      [
-        html.useTypescript(tsModifiers),
-        html.useWebpack(webpackModifiers),
-        html.overrideJestConfig(jestConfig),
-      ],
-      litEnv
+    const litEnv = envs.merge<LitEnv, Environment>(new LitEnv(), html.compose(
+        [
+          html.useTypescript(tsModifiers),
+          html.useWebpack(webpackModifiers),
+          html.overrideJestConfig(jestConfig),
+        ]
+      )
     );
 
-    envs.registerEnv(LitEnvEnv);
+    envs.registerEnv(litEnv);
     generator.registerComponentTemplate(componentTemplates);
     generator.registerWorkspaceTemplate(getWorkspaceTemplates(scope));
 
