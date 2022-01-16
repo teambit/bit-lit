@@ -10,7 +10,7 @@ importers:
       '@teambit/harmony': 0.2.11
       '@teambit/webpack.modules.style-regexps': 0.0.66
       '@testing-library/jest-dom': 5.14.1
-      '@types/jest': ^26.0.0
+      '@types/jest': 26.0.20
       '@types/mocha': 5.2.7
       '@types/node': 12.20.4
       '@types/react': ^17.0.8
@@ -52,7 +52,7 @@ importers:
       testing-library__dom: registry.npmjs.org/testing-library__dom/7.29.4-beta.1
       typescript: registry.npmjs.org/typescript/4.3.5
     devDependencies:
-      '@types/jest': registry.npmjs.org/@types/jest/26.0.24
+      '@types/jest': registry.npmjs.org/@types/jest/26.0.20
       '@types/mocha': registry.npmjs.org/@types/mocha/5.2.7
       '@types/node': registry.npmjs.org/@types/node/12.20.4
       '@types/react': registry.npmjs.org/@types/react/17.0.33
@@ -198,6 +198,15 @@ packages:
     version: 3.0.1
     dependencies:
       '@types/istanbul-lib-report': registry.npmjs.org/@types/istanbul-lib-report/3.0.0
+
+  registry.npmjs.org/@types/jest/26.0.20:
+    resolution: {integrity: sha512-9zi2Y+5USJRxd0FsahERhBwlcvFh6D2GLQnY2FH2BzK8J9s9omvNHIbvABwIluXa0fD8XVKMLTO0aOEuUfACAA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/jest/-/jest-26.0.20.tgz}
+    name: '@types/jest'
+    version: 26.0.20
+    dependencies:
+      jest-diff: registry.npmjs.org/jest-diff/26.6.2
+      pretty-format: registry.npmjs.org/pretty-format/26.6.2
+    dev: true
 
   registry.npmjs.org/@types/jest/26.0.24:
     resolution: {integrity: sha512-E/X5Vib8BWqZNRlDxj9vYXhsDwPYbPINqKF9BsnSoon4RQ0D9moEuLD8txgyypFLH7J4+Lho9Nr/c8H0Fi+17w==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/jest/-/jest-26.0.24.tgz}
