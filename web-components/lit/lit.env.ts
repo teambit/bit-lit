@@ -1,5 +1,8 @@
-import { DependenciesEnv, CompilerEnv, DevEnv } from '@teambit/envs';
+import { DependenciesEnv } from '@teambit/envs';
 import { VariantPolicyConfigObject } from '@teambit/dependency-resolver';
+
+export const LitEnvType = 'lit';
+
 export class LitEnv implements DependenciesEnv {
   icon = "https://static.bit.dev/extensions-icons/lit.svg";
 
@@ -14,6 +17,12 @@ export class LitEnv implements DependenciesEnv {
       peerDependencies: {
         "lit": "^2.0.0-rc.2"
       }
+    };
+  };
+  
+  async __getDescriptor() {
+    return {
+      type: LitEnvType,
     };
   }
 }
