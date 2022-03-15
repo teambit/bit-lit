@@ -43,4 +43,10 @@ export const litEnvTemplate: ComponentTemplate = {
       },
     ];
   },
+  config: {
+    'teambit.envs/env': {},
+    'teambit.envs/envs': {
+      env: 'teambit.envs/env',
+    }
+  },
 };

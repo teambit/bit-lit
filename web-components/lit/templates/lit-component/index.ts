@@ -18,4 +18,10 @@ export const litComponent: ComponentTemplate = {
 
     return [indexFile, componentFile(context), compositionFile(context), docsFile(context), testFile(context)];
   },
+  config: {
+    'teambit.web-components/lit': {},
+    'teambit.envs/envs': {
+      env: 'teambit.web-components/lit',
+    }
+  },
 };
