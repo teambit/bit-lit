@@ -1,4 +1,4 @@
-import { ComponentTemplate, ComponentContext } from '@teambit/generator';
+import { ComponentTemplate, ComponentContext, ConfigContext } from '@teambit/generator';
 import { componentFile } from './files/component';
 import { compositionFile } from './files/composition';
 import { docsFile } from './files/docs';
@@ -18,10 +18,12 @@ export const litComponent: ComponentTemplate = {
 
     return [indexFile, componentFile(context), compositionFile(context), docsFile(context), testFile(context)];
   },
-  config: {
-    'teambit.web-components/lit': {},
-    'teambit.envs/envs': {
-      env: 'teambit.web-components/lit',
+  config: (context: ConfigContext) => {
+    return {
+      [`${context.aspectId}`]: {},
+      'teambit.envs/envs': {
+        env: `${context.aspectId.split('@')[0]}`,
+      }
     }
   },
 };
