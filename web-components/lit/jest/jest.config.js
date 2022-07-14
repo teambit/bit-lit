@@ -15,7 +15,7 @@ const packagesToTransform = [
 const transformIgnorePatterns = generateNodeModulesPattern({packages: packagesToTransform});
 
 module.exports = {
-  transform: reactJestConfig.transform,
+  ...reactJestConfig,
   transformIgnorePatterns: [transformIgnorePatterns],
   setupFilesAfterEnv: [require.resolve("./setupTests.js")],
   moduleNameMapper: {
