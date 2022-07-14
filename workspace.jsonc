@@ -82,7 +82,7 @@
             "css-loader": "5.2.6",
             "sass-loader": "12.0.0",
             "lit": "2.0.0-rc.2",
-            "node-sass": "5.0.0",
+            "node-sass": "7.0.1",
             "typescript": "4.3.5"
           },
           "devDependencies": {
@@ -91,7 +91,7 @@
           }
         }
       },
-      "teambit.harmony/aspect": {}
+      "teambit.envs/env": {}
     },
     "web-components/example": {
       "teambit.web-components/lit": {}
