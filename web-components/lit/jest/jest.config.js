@@ -1,5 +1,5 @@
 import { generateNodeModulesPattern } from '@teambit/dependencies.modules.packages-excluder';
-const reactJestConfig = require('@teambit/react/jest/jest.config');
+const reactJestConfig = require('@teambit/react/jest/jest.cjs.config');
 
 const packagesToTransform = [
   "lit",
