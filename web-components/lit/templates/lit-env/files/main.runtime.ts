@@ -6,6 +6,7 @@ import { LitAspect, LitEnvMain } from '@teambit/web-components.lit';
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
 import { ${Name}Aspect } from './${name}.aspect';
 // import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
+// import { devConfigTransformer,  buildConfigTransformer } from "./typescript/ts-transformer";
 
 /**
  * Uncomment to include config files for overrides of Typescript or Webpack
@@ -20,13 +21,19 @@ export class ${Name}Main {
   static runtime = MainRuntime;
 
   static async provider([lit, envs]: [LitEnvMain, EnvsMain]) {
+
+    //const tsModifiers: UseTypescriptModifiers = {
+      //  devConfig: [devConfigTransformer],
+      //  buildConfig: [buildConfigTransformer],
+    //};
+
     const ${Name}Env = envs.compose(lit.litEnv, [
       /**
        * Uncomment to override the config files for TypeScript, Webpack or Jest
        * Your config gets merged with the defaults
        */
 
-      // lit.overrideTsConfig(tsconfig),
+      // lit.useTypescript(tsModifiers),
       // lit.useWebpack({
       //   previewConfig: [previewConfigTransformer],
       //   devServerConfig: [devServerConfigTransformer],

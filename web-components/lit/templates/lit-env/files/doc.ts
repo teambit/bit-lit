@@ -8,14 +8,22 @@ labels: ['lit', 'custom element', 'web component', 'typescript', 'env', 'extensi
 
 ## Overview
 
-A customized environment which extends the default [Lit component development environment](https://bit.dev/teambit/web-components/lit) created by teambit. 
+A customized environment which extends the default [Lit component development environment](https://bit.cloud/teambit/web-components/lit) created by teambit. 
 This environment can be applied to all your components or a set of components under the variants of your \`workspace.json\` file. 
 When applied to components, those components will use your custom environment instead of the default environment. 
 Environment components are just like any other Bit components in that they can be exported and then shared and used in various projects which, among other benefits, enables development standardisation across multiple teams.
 
 ### Usage Instructions
 
-Under the **variant** section of your \`workspace.json\` file [create the set](https://harmony-docs.bit.dev/aspects/variants/#variants-selector-examples) of components you want to have the custom environment set for, and configure them to use the custom environment as follows - you can find the id of the extension in the \`${name}.aspect.ts\` file.
+When creating a component with the Lit env's component template - \`bit create lit <component_name>\` - the component will automatically be assigned the lit env
+as its environment. 
+
+If you are adding components manually then you have two options for setting the lit env as the environment.
+
+1. Use the command \`bit env set "<component selector pattern>" ${componentId}\` (can be run on multiple components simultaneously, according to the selecting pattern used)
+
+1. Under the **variant** section of your \`workspace.json\` file [create the selector](https://bit.dev/docs/workspace/variants) to capture the components you 
+want the lit env to be applied to.
 
 \`\`\`json
 {
@@ -34,7 +42,13 @@ Extend the \`main.runtime\` file when you want to add custom configurations, suc
 ### Compilation
 
 By default, Component compilation uses the TypeScript compiler. Target format is \`ES2015\` which
-supports execution from both NodeJS and browser runtimes for server-side rendering. You can modify the \`tsconfig.json\` file in this extension to add your own compiler options which will then be merged with the default configs set by teambit.
+supports execution from both NodeJS and browser runtimes for server-side rendering. 
+
+Typescript updates are implemented via the useTypescript function (see the main.runtime file for syntax), which takes tsTransformers as inputs.  
+There is a sample transformer file in this env's files, 
+
+You can modify the \`tsconfig.json\` file in this 
+extension to add your own compiler options which will then be merged with the default configs set by teambit.
 
 Example:
 
@@ -55,6 +69,8 @@ Example:
   }
 }
 \`\`\`
+
+After modifying this file, 
 
 ### Testing
 

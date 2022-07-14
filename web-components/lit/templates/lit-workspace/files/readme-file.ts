@@ -5,7 +5,7 @@ This workspace contains a set of independently versioned and published [Lit](htt
 
 ## Setup workspace
 
-1. [Install Bit on your system](https://harmony-docs.bit.dev/getting-started/installing-bit)).
+1. [Install Bit on your system](https://bit.dev/docs/getting-started/installing-bit/installing-bit)).
 1. Clone this repository.
 1. Run \`bit install\`.
 
@@ -43,14 +43,19 @@ To publish components run:
 bit tag -a -m 'tag message here' && bit export
 \`\`\`
 
-Note - It's recommended to publish components as part of your CI process. Learn more [here](https://harmony-docs.bit.dev/reference/ci-cd#version-and-export-components-on-ci).
+:::note 
+It is recommended to publish components as part of your CI process. Learn more [here](https://bit.dev/docs/getting-started/installing-bit/getting-started/setup-ci#version-and-export-components-from-ci).
+:::
 
 ## Maintainer docs
 
-There are two files to be away when working with Bit:
+There are two files to be aware of when working with Bit:
 
-- **workspace.jsonc** This is the main configuration file of your bit workspace. Here you can modify the workspace name and icon as well as default directory and scope. It is where dependencies are found when you install anything. It is also where you register aspects, Bit extensions as well as apply configurations for your components. This workspace has been setup so that all components use the Lit env. However you can create other components and apply other envs to them such as node, html, angular others.
-- **.bitmap** This is an auto-generated file and includes the mapping of your components.
+- **workspace.jsonc** This is the main configuration file of your bit workspace. Here you can configure dependency rules for components, manage their scopes and configure custom aspects to be used in the workspace
+You can also control aesthetic aspects of the workspace such as name and icon as well as default directory and scope. 
+It is where dependencies are found when you install anything.
+  
+- **.bitmap** This is an auto-generated file and includes the directory mapping of your components.
 
 `;
 }

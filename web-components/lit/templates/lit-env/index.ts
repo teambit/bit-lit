@@ -4,7 +4,9 @@ import { docFile } from './files/doc';
 import { mainRuntimeFile } from './files/main.runtime';
 import { aspectFile } from './files/aspect';
 import { webpackConfigFile } from './files/webpack.config';
-import { typescriptConfigFile } from './files/typescript.config';
+import { typescriptConfigFile } from './files/typescript/typescript.config';
+import { tsTransformerFile } from './files/typescript/typescript.transformer';
+import { globalStylesFile } from './files/typescript/styles';
 import { jestConfigFile } from './files/jest.config';
 
 export const litEnvTemplate: ComponentTemplate = {
@@ -36,6 +38,14 @@ export const litEnvTemplate: ComponentTemplate = {
       {
         relativePath: `typescript/tsconfig.json`,
         content: typescriptConfigFile(),
+      },
+      {
+        relativePath: `typescript/typescript.transformer.ts`,
+        content: tsTransformerFile(),
+      },
+      {
+        relativePath: `typescript/styles.d.ts`,
+        content: globalStylesFile(),
       },
       {
         relativePath: `jest/jest.config.js`,

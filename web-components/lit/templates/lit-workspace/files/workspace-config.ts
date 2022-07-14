@@ -1,6 +1,5 @@
 import { WorkspaceContext } from '@teambit/generator';
 import { getWorkspaceConfigTemplateParsed, stringifyWorkspaceConfig } from '@teambit/config';
-import { assign } from 'comment-json';
 
 type CreateWorkspaceConfigContext = {
   litEnvIdWithVersion: string
@@ -31,15 +30,5 @@ export async function workspaceConfig(
     },
   };
 
-  const variants = {
-    "teambit.workspace/variants": {
-      "*": {
-        [litEnvIdWithVersion]: {},
-      },
-    },
-  };
-
-  const configMerged = assign(configParsed, variants);
-
-  return stringifyWorkspaceConfig(configMerged);
+  return stringifyWorkspaceConfig(configParsed);
 }
