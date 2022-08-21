@@ -22,7 +22,7 @@ Usage example:
 import './${name}';
 
 <${name} name="World"></${name}>
-}
+
 \`\`\`
 
 Live example
