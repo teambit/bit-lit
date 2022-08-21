@@ -9,23 +9,35 @@
  */
 
 {
-    "lit": {
-        "scope": "teambit.web-components",
-        "version": "0.0.20",
-        "mainFile": "index.ts",
-        "rootDir": "web-components/lit"
-    },
-    "my-lit": {
+    "example": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "web-components/my-lit",
+        "rootDir": "web-components/example",
         "config": {
-            "teambit.web-components/lit@0.0.20": {},
+            "teambit.web-components/lit@0.0.22": {},
+            "teambit.envs/envs": {
+                "env": "teambit.web-components/lit"
+        }
+        }
+    },
+    "lit": {
+        "scope": "teambit.web-components",
+        "version": "0.0.22",
+        "mainFile": "index.ts",
+        "rootDir": "web-components/lit"
+    },
+    "test-template": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "web-components/test-template",
+        "config": {
+            "teambit.web-components/lit@0.0.22": {},
             "teambit.envs/envs": {
                 "env": "teambit.web-components/lit"
             }
         }
     },
-    "$schema-version": "14.9.0"
+    "$schema-version": "15.0.0"
 }
