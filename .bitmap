@@ -27,17 +27,5 @@
         "mainFile": "index.ts",
         "rootDir": "web-components/lit"
     },
-    "test-template": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "web-components/test-template",
-        "config": {
-            "teambit.web-components/lit@0.0.22": {},
-            "teambit.envs/envs": {
-                "env": "teambit.web-components/lit"
-            }
-        }
-    },
     "$schema-version": "15.0.0"
 }
