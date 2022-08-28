@@ -1,6 +1,7 @@
+import { merge } from "lodash";
 import { GeneratorAspect, GeneratorMain } from "@teambit/generator";
 import { VariantPolicyConfigObject } from "@teambit/dependency-resolver";
-import { merge } from "lodash";
+import { MainRuntime } from '@teambit/cli';
 import { BuildTask } from "@teambit/builder";
 import { Compiler } from "@teambit/compiler";
 import { PackageJsonProps } from "@teambit/pkg";
@@ -24,12 +25,13 @@ import {
   buildConfigTransformer,
 } from "./typescript/ts-transformers";
 import { componentTemplates, getWorkspaceTemplates } from "./lit.templates";
+import { LitAspect } from "./lit.aspect";
 
 const jestConfig = require.resolve("./jest/jest.config");
 
 type LitDeps = [EnvsMain, HtmlMain, GeneratorMain, ScopeMain];
 
-export class LitEnvMain {
+export class LitMain {
   constructor(
     private html: HtmlMain,
     readonly litEnv: LitEnv,
@@ -122,6 +124,7 @@ export class LitEnvMain {
   }
 
   static dependencies: any = [EnvsAspect, HtmlAspect, GeneratorAspect, ScopeAspect];
+  static runtime = MainRuntime;
 
   static async provider([envs, html, generator, scope]: LitDeps) {
 
@@ -150,6 +153,8 @@ export class LitEnvMain {
     generator.registerComponentTemplate(componentTemplates);
     generator.registerWorkspaceTemplate(getWorkspaceTemplates(scope));
 
-    return new LitEnvMain(html, litEnv, envs);
+    return new LitMain(html, litEnv, envs);
   }
 }
+
+LitAspect.addRuntime(LitMain)

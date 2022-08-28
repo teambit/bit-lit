@@ -1,6 +1,4 @@
-import { LitAspect } from './lit.aspect';
-export { LitAspect };
+export type { LitEnvMain } from './lit.main.runtime';
+export { LitEnv } from './lit.env';
 
-import { LitEnvMain } from './lit-env.main.runtime';
-export { LitEnvMain };
-export default LitEnvMain;
+export { LitAspect, LitAspect as default } from './lit.aspect';
