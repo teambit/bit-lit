@@ -1,7 +1,9 @@
 {
-    "extends": "./node_modules/@teambit/react/typescript/tsconfig.json",
-    // "include": [],
-    "exclude": [
-      "dist"
+  "extends": "./node_modules/@teambit/react/typescript/tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": [
+      "./node_modules/@teambit/web-components.lit/typescript",
+      "./node_modules/@types"
     ]
   }
+}
