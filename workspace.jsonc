@@ -92,9 +92,6 @@
         }
       },
       "teambit.envs/env": {}
-    },
-    "web-components/example": {
-      "teambit.web-components/lit": {}
     }
   }
 }
