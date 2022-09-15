@@ -7,6 +7,7 @@ importers:
       '@babel/runtime': 7.12.18
       '@bit-foundations/styling.tailwind.webpack-transformer': 0.0.6
       '@learn-bit-react/ui-library-wrappers.tailwind.configs.tailwind-config': 0.0.3
+      '@learnbit/shared-configs.type-def': 0.0.1
       '@open-wc/testing-helpers': 1.8.12
       '@teambit/dependencies.modules.packages-excluder': 0.0.53
       '@teambit/harmony': 0.3.3
@@ -21,7 +22,7 @@ importers:
       core-js: ^3.0.0
       css-loader: 5.2.6
       extract-loader: 5.1.0
-      lit: 2.0.0-rc.2
+      lit: 2.3.1
       lit-html: 1.4.1
       lit-scss-loader: 1.1.0
       lodash: 4.17.21
@@ -36,6 +37,7 @@ importers:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
       '@bit-foundations/styling.tailwind.webpack-transformer': 0.0.6
       '@learn-bit-react/ui-library-wrappers.tailwind.configs.tailwind-config': 0.0.3
+      '@learnbit/shared-configs.type-def': 0.0.1
       '@teambit/dependencies.modules.packages-excluder': registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.53_react@17.0.2
       '@teambit/harmony': registry.npmjs.org/@teambit/harmony/0.3.3
       '@teambit/webpack.modules.style-regexps': registry.npmjs.org/@teambit/webpack.modules.style-regexps/0.0.66
@@ -43,7 +45,7 @@ importers:
       core-js: registry.npmjs.org/core-js/3.19.0
       css-loader: registry.npmjs.org/css-loader/5.2.6
       extract-loader: registry.npmjs.org/extract-loader/5.1.0
-      lit: registry.npmjs.org/lit/2.0.0-rc.2
+      lit: registry.npmjs.org/lit/2.3.1
       lit-html: registry.npmjs.org/lit-html/1.4.1
       lit-scss-loader: registry.npmjs.org/lit-scss-loader/1.1.0
       lodash: registry.npmjs.org/lodash/4.17.21
@@ -66,6 +68,9 @@ importers:
   web-components/example:
     specifiers: {}
 
+  web-components/example2:
+    specifiers: {}
+
   web-components/lit:
     specifiers: {}
 
@@ -83,6 +88,12 @@ packages:
 
   /@learn-bit-react/ui-library-wrappers.tailwind.configs.tailwind-config/0.0.3:
     resolution: {integrity: sha1-GMeG1xRoW6VWPNvxwis0HMp0m9o=, tarball: '@learn-bit-react/ui-library-wrappers.tailwind.configs.tailwind-config/-/@learn-bit-react-ui-library-wrappers.tailwind.configs.tailwind-config-0.0.3.tgz'}
+    dev: false
+
+  /@learnbit/shared-configs.type-def/0.0.1:
+    resolution: {integrity: sha1-dx1Qp05omHcmRsrD13df5WCooag=, tarball: '@learnbit/shared-configs.type-def/-/@learnbit-shared-configs.type-def-0.0.1.tgz'}
+    dependencies:
+      lit: registry.npmjs.org/lit/2.3.1
     dev: false
 
   registry.npmjs.org/@babel/code-frame/7.18.6:
@@ -148,10 +159,10 @@ packages:
       '@types/yargs': registry.npmjs.org/@types/yargs/15.0.14
       chalk: registry.npmjs.org/chalk/4.1.2
 
-  registry.npmjs.org/@lit/reactive-element/1.0.1:
-    resolution: {integrity: sha512-nSD5AA2AZkKuXuvGs8IK7K5ZczLAogfDd26zT9l6S7WzvqALdVWcW5vMUiTnZyj5SPcNwNNANj0koeV1ieqTFQ==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/@lit/reactive-element/-/reactive-element-1.0.1.tgz}
+  registry.npmjs.org/@lit/reactive-element/1.4.1:
+    resolution: {integrity: sha512-qDv4851VFSaBWzpS02cXHclo40jsbAjRXnebNXpm0uVg32kCneZPo9RYVQtrTNICtZ+1wAYHu1ZtxWSWMbKrBw==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/@lit/reactive-element/-/reactive-element-1.4.1.tgz}
     name: '@lit/reactive-element'
-    version: 1.0.1
+    version: 1.4.1
     dev: false
 
   registry.npmjs.org/@nodelib/fs.scandir/2.1.5:
@@ -2759,13 +2770,13 @@ packages:
       lit-html: registry.npmjs.org/lit-html/1.4.1
     dev: true
 
-  registry.npmjs.org/lit-element/3.0.1:
-    resolution: {integrity: sha512-vs9uybH9ORyK49CFjoNGN85HM9h5bmisU4TQ63phe/+GYlwvY/3SIFYKdjV6xNvzz8v2MnVC+9+QOkPqh+Q3Ew==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/lit-element/-/lit-element-3.0.1.tgz}
+  registry.npmjs.org/lit-element/3.2.2:
+    resolution: {integrity: sha512-6ZgxBR9KNroqKb6+htkyBwD90XGRiqKDHVrW/Eh0EZ+l+iC+u+v+w3/BA5NGi4nizAVHGYvQBHUDuSmLjPp7NQ==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/lit-element/-/lit-element-3.2.2.tgz}
     name: lit-element
-    version: 3.0.1
+    version: 3.2.2
     dependencies:
-      '@lit/reactive-element': registry.npmjs.org/@lit/reactive-element/1.0.1
-      lit-html: registry.npmjs.org/lit-html/2.0.1
+      '@lit/reactive-element': registry.npmjs.org/@lit/reactive-element/1.4.1
+      lit-html: registry.npmjs.org/lit-html/2.3.1
     dev: false
 
   registry.npmjs.org/lit-html/1.4.1:
@@ -2773,10 +2784,10 @@ packages:
     name: lit-html
     version: 1.4.1
 
-  registry.npmjs.org/lit-html/2.0.1:
-    resolution: {integrity: sha512-KF5znvFdXbxTYM/GjpdOOnMsjgRcFGusTnB54ixnCTya5zUR0XqrDRj29ybuLS+jLXv1jji6Y8+g4W7WP8uL4w==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/lit-html/-/lit-html-2.0.1.tgz}
+  registry.npmjs.org/lit-html/2.3.1:
+    resolution: {integrity: sha512-FyKH6LTW6aBdkfNhNSHyZTnLgJSTe5hMk7HFtc/+DcN1w74C215q8B+Cfxc2OuIEpBNcEKxgF64qL8as30FDHA==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/lit-html/-/lit-html-2.3.1.tgz}
     name: lit-html
-    version: 2.0.1
+    version: 2.3.1
     dependencies:
       '@types/trusted-types': registry.npmjs.org/@types/trusted-types/2.0.2
     dev: false
@@ -2794,14 +2805,14 @@ packages:
       clean-css: registry.npmjs.org/clean-css/4.2.3
     dev: false
 
-  registry.npmjs.org/lit/2.0.0-rc.2:
-    resolution: {integrity: sha512-BOCuoJR04WaTV8UqTKk09cNcQA10Aq2LCcBOiHuF7TzWH5RNDsbCBP5QM9sLBSotGTXbDug/gFO08jq6TbyEtw==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/lit/-/lit-2.0.0-rc.2.tgz}
+  registry.npmjs.org/lit/2.3.1:
+    resolution: {integrity: sha512-TejktDR4mqG3qB32Y8Lm5Lye3c8SUehqz7qRsxe1PqGYL6me2Ef+jeQAEqh20BnnGncv4Yxy2njEIT0kzK1WCw==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/lit/-/lit-2.3.1.tgz}
     name: lit
-    version: 2.0.0-rc.2
+    version: 2.3.1
     dependencies:
-      '@lit/reactive-element': registry.npmjs.org/@lit/reactive-element/1.0.1
-      lit-element: registry.npmjs.org/lit-element/3.0.1
-      lit-html: registry.npmjs.org/lit-html/2.0.1
+      '@lit/reactive-element': registry.npmjs.org/@lit/reactive-element/1.4.1
+      lit-element: registry.npmjs.org/lit-element/3.2.2
+      lit-html: registry.npmjs.org/lit-html/2.3.1
     dev: false
 
   registry.npmjs.org/loader-utils/1.4.0:
