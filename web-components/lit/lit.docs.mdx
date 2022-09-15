@@ -7,6 +7,31 @@ description: 'A customized extension for Lit environment.'
 
 This environment provides support for creating [Lit Elements](https://lit.dev) as Bit components. Use this to create and share re-usable custom elements (a.k.a web components) which are framework agnostic and can include both UI and logic.
 
+### Styling with lit and scss
+
+By default lit elements only support encapsulated styling via css. This env includes config for using scss for the in-component encapsulated styling. 
+
+The syntax for this is the same as the current syntax for adding encapsulated css styling from a separate css file:
+```js
+import myStyles from './my-styles.scss'; // note the scss, not css. The name of the import, here myStyles, is totally arbitrary
+
+@customElement("simple-greeting")
+export class SimpleGreeting extends LitElement {
+  // ...
+  static get styles() {
+    return [myStyles];
+  }
+
+  // rest of component
+}
+```
+
+This is implemented via the [`lit-scss-loader`](https://www.npmjs.com/package/lit-scss-loader) package, which returns the compiled scss code as a string which 
+is then inserted into the shadow-dom.
+
+So if you wish to use scss in your lit elements, you'll need to add the `lit-scss-loader` to your webpack config in the consuming application - see the package's docs
+for how to configure this in your webpack setup. It's an easy config so shouldn't take long to configure.
+
 ## Create a new workspace using a template
 
 This environment comes with a built in basic workspace template for Lit components. To use it run:
@@ -35,7 +60,7 @@ Start the local dev server:
 bit start
 ```
 
-## Creact a Lit component
+## Create a Lit component
 
 This environment comes with a built in basic component template for Lit components.  
 See available templates:
