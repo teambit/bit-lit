@@ -23,7 +23,7 @@
     },
     "lit": {
         "scope": "teambit.web-components",
-        "version": "0.0.24",
+        "version": "0.0.25",
         "mainFile": "index.ts",
         "rootDir": "web-components/lit"
     },
